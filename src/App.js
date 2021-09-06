@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Mai extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
+
+  decrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
+
+  reset = () => {
+    this.setState({ count: (this.state.count = 0) });
+  };
+
+  render() {
+    // console.log(count);
+    return (
+      <>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+        <br></br>
+        <br></br>
+        <button onClick={this.decrement}>Decrement</button>
+        <br></br>
+        <br></br>
+        <button onClick={this.reset}>Reset</button>
+      </>
+    );
+  }
 }
 
-export default App;
+export default Mai;
